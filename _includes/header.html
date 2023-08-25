@@ -1,0 +1,66 @@
+<style>
+  .site-header {
+    font-family: monospace;
+    font-size: 25px;
+    
+    position: absolute;
+    transition: top 0.2s ease-in-out;
+    margin-top: 25px;
+    padding-top: 10px;
+    left: -80px;
+    margin-top: 275px;
+  }
+
+  .headerbutton {
+    border: none;
+    background: rgb(212, 212, 212);
+    color:black;
+    font-weight: bold;
+    width: 270px;
+
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .headerbutton:hover {
+    background-color: rgb(6, 184, 184);
+  }
+
+  img{
+    position:relative;
+    border: 3px solid;
+    border-color: cyan;
+  }
+
+  .pfp {
+    border-radius: 50%;
+    position:absolute;
+    left: -80px;
+  }
+
+
+</style>
+
+<img src="images/pfp.png" class="pfp"> 
+
+
+<header class="site-header">
+  <div id="header">
+    <nav>
+      <p> An aspiring Computer Scientist at Del Norte </p>
+      <class="fork" ><button class="headerbutton"><a href="{{site.baseurl}}/">Home</a></button> <br \>
+      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csse">CSSE</a></button> <br \>
+      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csp">CSP</a></button> <br \> 
+      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csa">CSA</a></button> <br \> 
+      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/blogs">Blogs</a></button> <br \>
+      <class="title"><button class="headerbutton"><a href="{{ site.github.repository_url }}#readme">View On GitHub</a></button> <br \>
+    </nav>
+  </div><!-- end header -->
+</header>
