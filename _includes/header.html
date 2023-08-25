@@ -12,7 +12,7 @@
   }
 
   .headerbutton {
-    border: 2px solid cyan;
+    border: 1px solid cyan;
 
     background: rgb(0, 0, 0);
     color:black;
@@ -55,13 +55,13 @@
   <div id="header">
     <nav>
       <p> An aspiring Computer Scientist at Del Norte </p>
-      <class="fork" ><button class="headerbutton"><a href="{{site.baseurl}}/">Home</a></button> <br \>
-      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csse">CSSE</a></button> <br \>
-      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csp">CSP</a></button> <br \> 
-      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csa">CSA</a></button> <br \> 
-      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/blogs">Blogs</a></button> <br \>
-      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/games">Games</a></button> <br \>
-      <class="title"><button class="headerbutton"><a href="{{ site.github.repository_url }}#readme">View On GitHub</a></button> <br \>
+      <class="fork" ><button class="headerbutton" onclick="window.location.href='{{site.baseurl}}/'";><a href="{{site.baseurl}}/">Home</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/csse'";><a href="{{site.baseurl}}/csse">CSSE</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/csp'";><a href="{{site.baseurl}}/csp">CSP</a></button> <br \> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/csa'";><a href="{{site.baseurl}}/csa">CSA</a></button> <br \> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/blogs'";><a href="{{site.baseurl}}/blogs">Blogs</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/games/'";><a href="{{site.baseurl}}/games">Games</a></button> <br \>
+      <class="title"><button class="headerbutton"onclick="window.location.href='{{ site.github.repository_url }}#readme'";><a href="{{ site.github.repository_url }}#readme">View On GitHub</a></button> <br \>
     </nav>
   </div><!-- end header -->
 </header>
