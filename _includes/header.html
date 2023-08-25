@@ -1,7 +1,7 @@
 <style>
   .site-header {
     font-family: monospace;
-    font-size: 25px;
+    font-size: 15px;
     
     position: absolute;
     transition: top 0.2s ease-in-out;
@@ -12,18 +12,18 @@
   }
 
   .headerbutton {
-    border: none;
-    background: rgb(212, 212, 212);
+    border: 2px solid cyan;
+
+    background: rgb(0, 0, 0);
     color:black;
     font-weight: bold;
     width: 270px;
 
-    padding: 15px 32px;
+    padding: 15px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
 
     transition-duration: 0.4s;
     cursor: pointer;
@@ -60,6 +60,7 @@
       <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csp">CSP</a></button> <br \> 
       <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/csa">CSA</a></button> <br \> 
       <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/blogs">Blogs</a></button> <br \>
+      <class="fork"><button class="headerbutton"><a href="{{site.baseurl}}/games">Games</a></button> <br \>
       <class="title"><button class="headerbutton"><a href="{{ site.github.repository_url }}#readme">View On GitHub</a></button> <br \>
     </nav>
   </div><!-- end header -->

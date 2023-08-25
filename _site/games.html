@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Student Blog | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Student Blog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="August 2023 to June 2024" />
+<meta property="og:description" content="August 2023 to June 2024" />
+<link rel="canonical" href="http://0.0.0.0:4200/student/games.html" />
+<meta property="og:url" content="http://0.0.0.0:4200/student/games.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Student Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"August 2023 to June 2024","headline":"Student Blog","url":"http://0.0.0.0:4200/student/games.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=02b858ce700ea069ad803509f69c2beebd200afe">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><style>
+  .site-header {
+    font-family: monospace;
+    font-size: 15px;
+    
+    position: absolute;
+    transition: top 0.2s ease-in-out;
+    margin-top: 25px;
+    padding-top: 10px;
+    left: -80px;
+    margin-top: 275px;
+  }
+
+  .headerbutton {
+    border: 2px solid cyan;
+
+    background: rgb(0, 0, 0);
+    color:black;
+    font-weight: bold;
+    width: 270px;
+
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .headerbutton:hover {
+    background-color: rgb(6, 184, 184);
+  }
+
+  img{
+    position:relative;
+    border: 3px solid;
+    border-color: cyan;
+  }
+
+  .pfp {
+    border-radius: 50%;
+    position:absolute;
+    left: -80px;
+  }
+
+
+</style>
+
+<img src="images/pfp.png" class="pfp"> 
+
+
+<header class="site-header">
+  <div id="header">
+    <nav>
+      <p> An aspiring Computer Scientist at Del Norte </p>
+      <class="fork" ><button class="headerbutton"><a href="/student/">Home</a></button> <br \>
+      <class="fork"><button class="headerbutton"><a href="/student/csse">CSSE</a></button> <br \>
+      <class="fork"><button class="headerbutton"><a href="/student/csp">CSP</a></button> <br \> 
+      <class="fork"><button class="headerbutton"><a href="/student/csa">CSA</a></button> <br \> 
+      <class="fork"><button class="headerbutton"><a href="/student/blogs">Blogs</a></button> <br \>
+      <class="fork"><button class="headerbutton"><a href="/student/games">Games</a></button> <br \>
+      <class="title"><button class="headerbutton"><a href="https://github.com/Be1uga4life/student.git#readme">View On GitHub</a></button> <br \>
+    </nav>
+  </div><!-- end header -->
+</header></header>
+
+
+    <section>
+      <style>
+  body {
+      background-color: #171515;
+      color: #ffffff;
+      animation: fadeInAnimation ease 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+  }
+
+  h1 {
+    position: relative;
+    color: rgb(0,255,255);
+    font-size: 3rem;
+    font-family: Monospace;
+  }
+</style>
+
+<h1>Games</h1>
+
+<h2 id="calculator"><span style="color: white; font-size: 20px;">Calculator</span></h2>
+
+<div id="calculator">
+<div style="max-width: 200px; background-color: #333333; padding: 10px;">
+  <input type="text" id="display" disabled="" />
+  <br />
+  <button onclick="appendToDisplay('1')">1</button>
+  <button onclick="appendToDisplay('2')">2</button>
+  <button onclick="appendToDisplay('3')">3</button>
+  <button onclick="appendToDisplay('*')">x</button>
+  <button onclick="appendToDisplay('+')">+</button>
+  <button onclick="appendToDisplay('-')">-</button>
+  <br />
+  <button onclick="appendToDisplay('4')">4</button>
+  <button onclick="appendToDisplay('5')">5</button>
+  <button onclick="appendToDisplay('6')">6</button>
+  <button onclick="calculate()">=</button>
+  <button onclick="appendToDisplay('/')">/</button>
+  <button onclick="clearDisplay()">C</button>
+  <br />
+  <button onclick="appendToDisplay('7')">7</button>
+  <button onclick="appendToDisplay('8')">8</button>
+  <button onclick="appendToDisplay('9')">9</button>
+  <br />
+  <button onclick="appendToDisplay('0')">0</button>
+
+</div>
+
+<script>
+  let display = document.getElementById('display');
+
+  function appendToDisplay(value) {
+    display.value += value;
+  }
+
+  function calculate() {
+    try {
+      display.value = eval(display.value);
+    } catch (error) {
+      display.value = 'Error';
+    }
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+</script>
+
+<head>
+  <br />
+  <h2 span="" style="color: white; font-size: 20px;">Tic Tac Toe </h2>
+  <style>
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 2px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      border: 1px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="board" id="board">
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+  </div>
+
+  <script>
+    const board = document.getElementById('board');
+    const cells = document.querySelectorAll('.cell');
+    let currentPlayer = 'X';
+    let gameActive = true;
+
+    cells.forEach(cell => {
+      cell.addEventListener('click', handleCellClick);
+    });
+
+    function handleCellClick(event) {
+      const clickedCell = event.target;
+      const clickedIndex = Array.from(cells).indexOf(clickedCell);
+
+      if (gameActive && !cells[clickedIndex].textContent) {
+        cells[clickedIndex].textContent = currentPlayer;
+        checkWin();
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      }
+    }
+
+    function checkWin() {
+      const winCombinations = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]           // Diagonals
+      ];
+
+      for (const combination of winCombinations) {
+        const [a, b, c] = combination;
+        if (cells[a].textContent && cells[a].textContent === cells[b].textContent && cells[a].textContent === cells[c].textContent) {
+          gameActive = false;
+          alert(`${cells[a].textContent} wins!`);
+          break;
+        }
+      }
+    }
+  </script>
+</body>
+
+<p><p>
+<hr />
+</p></p></div>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>
