@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Week0 Documentation | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Week0 Documentation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="August 2023 to June 2024" />
+<meta property="og:description" content="August 2023 to June 2024" />
+<link rel="canonical" href="http://0.0.0.0:4200/student/2023/08/30/Week0-Documentation.html" />
+<meta property="og:url" content="http://0.0.0.0:4200/student/2023/08/30/Week0-Documentation.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-30T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week0 Documentation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-30T00:00:00-07:00","datePublished":"2023-08-30T00:00:00-07:00","description":"August 2023 to June 2024","headline":"Week0 Documentation","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4200/student/2023/08/30/Week0-Documentation.html"},"url":"http://0.0.0.0:4200/student/2023/08/30/Week0-Documentation.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=7a1a99fcf8a855fce662107f668e952c163bd680">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><style>
+  .site-header {
+    font-family: monospace;
+    font-size: 15px;
+    
+    position: absolute;
+    transition: top 0.2s ease-in-out;
+    margin-top: 25px;
+    padding-top: 10px;
+    left: -80px;
+    margin-top: 275px;
+  }
+
+  .headerbutton {
+    border: 1px solid cyan;
+
+    background: rgb(0, 0, 0);
+    color:black;
+    font-weight: bold;
+    width: 270px;
+    color: #3366CC;
+
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    transition: top -0.2s ease-in-out;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .headerbutton:hover {
+    background-color: rgb(0, 255, 255);
+  }
+
+  img{
+    position:relative;
+    border: 3px solid;
+    border-color: cyan;
+  }
+
+  .pfp {
+    border-radius: 50%;
+    position:absolute;
+    left: -80px;
+  }
+
+
+</style>
+
+<img src="/student/images/pfp.png" class="pfp"> 
+<script>
+  var IsLoggedIn1 = "true";
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    var elem = document.querySelectorAll("#border");
+    elem.forEach(function(border) {
+      border.classList.toggle("border-dark");
+      });
+    var bars = document.querySelectorAll("#bar");
+    bars.forEach(function(bar) {
+      bar.classList.toggle("bar-dark");
+      });
+    var cellz = document.querySelectorAll("#cells");
+    cellz.forEach(function(cells) {
+      cells.classList.toggle("cell");
+      cells.classList.toggle("cells-dark");
+      });
+  }
+</script>
+
+
+
+<header class="site-header">
+  <div id="header">
+    <nav>
+<style>
+  #typewriter-container {
+    width: 100%;
+    white-space: pre-line;
+    font-family: monospace;
+    font-size: 18px;
+    animation: blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="typewriter-container"></div>
+<script>
+  const strings = [
+    "CyberPatriot Competitor",
+    "CyberAegis Lead",
+    "USACO Competitor"
+  ];
+
+  const typewriterContainer = document.getElementById('typewriter-container');
+
+  function typeNextString() {
+    
+    const randomIndex = Math.floor(Math.random() * strings.length);
+    const stringToType = strings[randomIndex];
+    
+    let charIndex = 0;
+    
+    const typingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToType.slice(0, charIndex++);
+      
+      if (charIndex > stringToType.length) {
+        clearInterval(typingInterval);
+        setTimeout(reverseTypeString, 1500, stringToType); // Delay before reverse typing
+      }
+    }, 100);
+    
+    strings.splice(randomIndex, 1); // Remove the used string
+  }
+
+  function reverseTypeString(stringToReverse) {
+    let charIndex = stringToReverse.length;
+    const reverseTypingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToReverse.slice(0, charIndex--);
+      
+      if (charIndex < 0) {
+        clearInterval(reverseTypingInterval);
+        typewriterContainer.innerHTML += '<br>'; // Add line breaks between strings
+        setTimeout(typeNextString, 1500); // Delay before typing the next string
+      }
+    }, 100);
+  }
+
+  typeNextString(); // Start the typing
+</script>
+</body>
+</html>
+
+      <button class="headerbutton" onclick="myFunction()">Dark Mode</button> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/'";><a href="/student/">Home</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/csse'";><a href="/student/csse">CSSE</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/csp'";><a href="/student/csp">CSP</a></button> <br \> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/csa'";><a href="/student/csa">CSA</a></button> <br \> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/blogs'";><a href="/student/blogs">Blogs</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/games'";><a href="/student/games">Games</a></button> <br \>
+      <class="title"><button class="headerbutton"onclick="window.location.href='https://github.com/Be1uga4life/student.git#readme'";><a href="https://github.com/Be1uga4life/student.git#readme">View On GitHub</a></button> <br \>
+    </nav>
+  </div><!-- end header -->
+</header></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header"> -->
+    <h1 
+      class="post-title p-name" itemprop="name headline">Week0 Documentation
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-08-30T00:00:00-07:00" itemprop="datePublished">
+        Aug 30, 2023
+      </time>
+    </p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <style>
+    body {
+      animation: fadeInAnimation ease 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+  }
+
+   body { background-color: #121212; color: #ffffff; } 
+  hr{background-color: #7289da;}
+  .color{color:#7289da;}
+  body {
+    padding: 25px;
+    background-color: #121212;
+    color: #ffffff;
+    transition-duration: 0.2s;
+    font-family: Monospace;
+  }
+  hr{background-color: #7289da;}
+
+  h1 {
+    color: cyan;
+  }
+
+  h2 {
+    color: cyan;
+  }
+
+  code {
+    color: cyan;
+  }
+</style>
+
+<h2 id="week-0-documentation">Week 0 Documentation</h2>
+<p>Week 0 was the first week of our AP CSP Journey, we met multiple issues regarding the installation processes, GIT, VScode, and much more. We’ll be documenting every issue we faced thoroughly throughout this document</p>
+
+<h2 id="vscode-github-pages-setup">VSCode, GitHub Pages Setup</h2>
+
+<p>Installing WSL was our first step in our project, to explain what WSL is:</p>
+
+<p>The Windows Subsystem for Linux (WSL) represents an innovative compatibility layer within the Windows operating system environment. It enables the seamless coexistence of Windows and Linux applications by providing a Linux-compatible kernel interface atop the Windows NT kernel. WSL effectively bridges the historically distinct realms of Windows and Linux, fostering an environment where users can harness the power of both ecosystems simultaneously.</p>
+
+<p><img src="https://cdn.discordapp.com/attachments/909947635715153952/1146673423330857010/Screenshot_2023-08-30_215546.png" alt="Alternative text" />
+<em>An example of a Linux WSL terminal</em></p>
+
+<hr />
+
+<p>After we installed our WSL, we downloaded VSCode, VSCode stands as a prominent exemplar in the realm of integrated development environments (IDEs) and source code editors.</p>
+
+<p><img src="https://cdn.discordapp.com/attachments/909947635715153952/1146675205553532989/image.png" alt="Alternative text" float="left" align="left" /></p>
+
+<p><em> What our Student Repository looks like on VSCode </em></p>
+<hr />
+
+<p>After getting the Software setup, we cloned the Teacher Repository, named “Teacher”, and a forked Repository named “Student”
+<img src="https://cdn.discordapp.com/attachments/909947635715153952/1146678779813560340/image.png" alt="Alternative text" float="left" align="left" />
+<br />
+<em> Cloning into both Repositories </em></p>
+<hr />
+
+<p>After we had our Repositories ready, I completed the Installation Process with Ruby, Jekyll, etc.</p>
+
+<p>Our first problem arised when our “Make” command didn’t work as intended, and would return the following Error Message:
+<img src="https://cdn.discordapp.com/attachments/909947635715153952/1146679963014135808/image.png" alt="Alternative text" float="left" align="left" /></p>
+
+<p><br /></p>
+
+<p>Researching the code a little, I came across a Stack Overflow page that had a similar problem to mine. Their code would would face a similar error code where the Makefile claims that a file doesn’t exist.</p>
+
+<p><img src="https://cdn.discordapp.com/attachments/909947635715153952/1146681792213028924/image.png" alt="Alternative text" float="left" align="left" /></p>
+
+<p>Following the Discussion, we would be able to narrow down the problem to the Shellflags, which was the main breaking point of the Makefile. Therefore commenting out the Shellflags would fix this problem. After we did so, we would be able to run “Make” normally.</p>
+
+<p><img src="https://cdn.discordapp.com/attachments/909947635715153952/1146683203625685052/image.png" alt="Alternative text" float="left" align="left" /></p>
+
+<hr />
+
+<p>The next supposed step was to setup the VSCode push to Github feature. However, I decided to use CMD Git as I was more familiar with it than VSCode GUI. So first I set the Github Email and Username.</p>
+
+<p>From here, I expected running the “git push” command would function as intended, but it instead gave me this error message:</p>
+
+<p><img src="https://cdn.discordapp.com/attachments/909947635715153952/1146684556477464656/image.png" alt="Alternative text" float="left" align="left" /></p>
+
+<p>Having dealt with CyberSecurity concepts before, I was able to guess that I needed a Pubkey. Researching a little more into how to authenticate, I found out I had to set up a SSH key.</p>
+
+<p>Essentially I simply followed the steps given by Github <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">here</a></p>
+
+<p>Doing this, I ran into another problem, Github was still prompting me for my Github password, and not my SSH key password. The problem was actually fairly simple.</p>
+
+<p>When I ran the command:</p>
+
+<p><code>
+git clone http://github.com/Be1uga4life/student.git
+</code></p>
+
+<p>This was still trying to authenticate over HTTP, and what we wanted to do was authenticate through SSH, therefore the new command would be:</p>
+
+<p><code>
+git clone git@github.com:Be1uga4life/student.git
+</code></p>
+
+<p>After this, my installation process was finished</p>
+
+  </div><a class="u-url" href="/student/2023/08/30/Week0-Documentation.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

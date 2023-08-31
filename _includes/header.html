@@ -18,6 +18,7 @@
     color:black;
     font-weight: bold;
     width: 270px;
+    color: #3366CC;
 
     padding: 15px 20px;
     text-align: center;
@@ -25,6 +26,7 @@
     display: inline-block;
     font-size: 16px;
 
+    transition: top -0.2s ease-in-out;
     transition-duration: 0.4s;
     cursor: pointer;
   }
@@ -48,19 +50,108 @@
 
 </style>
 
-<img src="images/pfp.png" class="pfp"> 
+<img src="{{site.baseurl}}/images/pfp.png" class="pfp"> 
+<script>
+  var IsLoggedIn1 = "true";
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    var elem = document.querySelectorAll("#border");
+    elem.forEach(function(border) {
+      border.classList.toggle("border-dark");
+      });
+    var bars = document.querySelectorAll("#bar");
+    bars.forEach(function(bar) {
+      bar.classList.toggle("bar-dark");
+      });
+    var cellz = document.querySelectorAll("#cells");
+    cellz.forEach(function(cells) {
+      cells.classList.toggle("cell");
+      cells.classList.toggle("cells-dark");
+      });
+  }
+</script>
+
 
 
 <header class="site-header">
   <div id="header">
     <nav>
-      <p> An aspiring Computer Scientist at Del Norte </p>
-      <class="fork" ><button class="headerbutton" onclick="window.location.href='{{site.baseurl}}/'";><a href="{{site.baseurl}}/">Home</a></button> <br \>
+<style>
+  #typewriter-container {
+    width: 100%;
+    white-space: pre-line;
+    font-family: monospace;
+    font-size: 18px;
+    animation: blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="typewriter-container"></div>
+<script>
+  const strings = [
+    "CyberPatriot Competitor",
+    "CyberAegis Lead",
+    "USACO Competitor"
+  ];
+
+  const typewriterContainer = document.getElementById('typewriter-container');
+
+  function typeNextString() {
+    
+    const randomIndex = Math.floor(Math.random() * strings.length);
+    const stringToType = strings[randomIndex];
+    
+    let charIndex = 0;
+    
+    const typingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToType.slice(0, charIndex++);
+      
+      if (charIndex > stringToType.length) {
+        clearInterval(typingInterval);
+        setTimeout(reverseTypeString, 1500, stringToType); // Delay before reverse typing
+      }
+    }, 100);
+    
+    strings.splice(randomIndex, 1); // Remove the used string
+  }
+
+  function reverseTypeString(stringToReverse) {
+    let charIndex = stringToReverse.length;
+    const reverseTypingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToReverse.slice(0, charIndex--);
+      
+      if (charIndex < 0) {
+        clearInterval(reverseTypingInterval);
+        typewriterContainer.innerHTML += '<br>'; // Add line breaks between strings
+        setTimeout(typeNextString, 1500); // Delay before typing the next string
+      }
+    }, 100);
+  }
+
+  typeNextString(); // Start the typing
+</script>
+</body>
+</html>
+
+      <button class="headerbutton" onclick="myFunction()">Dark Mode</button> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/'";><a href="{{site.baseurl}}/">Home</a></button> <br \>
       <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/csse'";><a href="{{site.baseurl}}/csse">CSSE</a></button> <br \>
       <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/csp'";><a href="{{site.baseurl}}/csp">CSP</a></button> <br \> 
       <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/csa'";><a href="{{site.baseurl}}/csa">CSA</a></button> <br \> 
       <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/blogs'";><a href="{{site.baseurl}}/blogs">Blogs</a></button> <br \>
-      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/games/'";><a href="{{site.baseurl}}/games">Games</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='{{site.baseurl}}/games'";><a href="{{site.baseurl}}/games">Games</a></button> <br \>
       <class="title"><button class="headerbutton"onclick="window.location.href='{{ site.github.repository_url }}#readme'";><a href="{{ site.github.repository_url }}#readme">View On GitHub</a></button> <br \>
     </nav>
   </div><!-- end header -->

@@ -3,6 +3,7 @@ layout: default
 title: Student Blog
 ---
 
+
 <style>
   #loader-wrapper {
   position: fixed;
@@ -161,7 +162,43 @@ h1:hover {
 });
 </script>
 
-
+<style>
+  .dark-mode {
+    background-color: white;
+    color: black;
+    transition-duration: 0.2s;
+  }
+  .bar-dark{background-color: black}
+  
+  .border-dark {
+    border: 2px solid black;
+  }
+  .cells-dark {
+    width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+  }
+  .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 2px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #7289da;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+</style>
 
 <div class="typewriter">
   <h1>Eric's Blog</h1>
@@ -201,8 +238,6 @@ If you have time, feel free to check out my [Github!](https://github.com/Be1uga4
 <style>
 
   body {
-      background-color: #171515;
-      color: #ffffff;
       animation: fadeInAnimation ease 3s;
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
@@ -218,9 +253,9 @@ If you have time, feel free to check out my [Github!](https://github.com/Be1uga4
 
 h1 {
   position: relative;
-  color: rgb(0,255,255);
   font-size: 3rem;
   font-family: Monospace;
+  color: cyan;
 }
 
 p {
@@ -228,6 +263,143 @@ p {
 }
 </style>
 
+<style> 
+  body { background-color: #121212; color: #ffffff; } 
+  hr{background-color: #7289da;}
+  .color{color:#7289da;}
+  body {
+    padding: 25px;
+    background-color: #121212;
+    color: #ffffff;
+    transition-duration: 0.2s;
+    font-family: Monospace;
+  }
+  hr{background-color: #7289da;}
+  .dark-mode {
+    background-color: white;
+    color: black;
+    transition-duration: 0.2s;
+  }
+  .bar-dark{background-color: black}
+  
+  .border-dark {
+    border: 2px solid black;
+  }
+  .cells-dark {
+    width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+  }
+  .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 2px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #7289da;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+</style>
+
+
+<script>
+  
+var IsLoggedIn1 = "true";
+function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+  var elem = document.querySelectorAll("#border");
+  elem.forEach(function(border) {
+    border.classList.toggle("border-dark");
+    });
+  var bars = document.querySelectorAll("#bar");
+  bars.forEach(function(bar) {
+    bar.classList.toggle("bar-dark");
+    });
+  var cellz = document.querySelectorAll("#cells");
+  cellz.forEach(function(cells) {
+    cells.classList.toggle("cell");
+    cells.classList.toggle("cells-dark");
+    });
+}
+</script>
 <script src="https://apis.google.com/js/platform.js"></script>
 
 <div class="g-ytsubscribe" data-channelid="UCpWLvdZNtaNOUF3wfFe1_og" data-layout="full" data-theme="dark" data-count="default"></div>
+
+<head>
+<title>Typewriter Effect</title>
+
+<style>
+  #typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid black;
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }
+
+</style>
+</head>
+<body>
+<div id="typewriter"></div>
+
+<script>
+  const strings = [
+    "CyberPatriot Competitor",
+    "CyberAegis Lead",
+    "USACO Competitor"
+  ];
+
+  const typewriter = document.getElementById('typewriter');
+
+  function typeNextString() {
+    const randomIndex = Math.floor(Math.random() * strings.length);
+    const stringToType = strings[randomIndex];
+
+    typewriter.innerHTML = ''; // Clear previous content
+    let charIndex = 0;
+    
+    const typingInterval = setInterval(() => {
+      typewriter.innerHTML = stringToType.slice(0, charIndex++);
+      
+      if (charIndex > stringToType.length) {
+        clearInterval(typingInterval);
+        setTimeout(typeNextString, 2500); // Delay before typing the next string
+      }
+    }, 100);
+  }
+
+  typeNextString(); // Start the typing
+</script>
+</body>

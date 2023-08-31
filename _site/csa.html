@@ -20,7 +20,7 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"August 2023 to June 2024","headline":"Computer Science “A”","url":"http://0.0.0.0:4200/student/csa.html"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <link rel="stylesheet" href="/student/assets/css/style.css?v=b2f75e063cf51e7971357fd011c34bc47d45a5ce">
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=7a1a99fcf8a855fce662107f668e952c163bd680">
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
     
@@ -59,6 +59,7 @@
     color:black;
     font-weight: bold;
     width: 270px;
+    color: #3366CC;
 
     padding: 15px 20px;
     text-align: center;
@@ -66,6 +67,7 @@
     display: inline-block;
     font-size: 16px;
 
+    transition: top -0.2s ease-in-out;
     transition-duration: 0.4s;
     cursor: pointer;
   }
@@ -89,19 +91,108 @@
 
 </style>
 
-<img src="images/pfp.png" class="pfp"> 
+<img src="/student/images/pfp.png" class="pfp"> 
+<script>
+  var IsLoggedIn1 = "true";
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    var elem = document.querySelectorAll("#border");
+    elem.forEach(function(border) {
+      border.classList.toggle("border-dark");
+      });
+    var bars = document.querySelectorAll("#bar");
+    bars.forEach(function(bar) {
+      bar.classList.toggle("bar-dark");
+      });
+    var cellz = document.querySelectorAll("#cells");
+    cellz.forEach(function(cells) {
+      cells.classList.toggle("cell");
+      cells.classList.toggle("cells-dark");
+      });
+  }
+</script>
+
 
 
 <header class="site-header">
   <div id="header">
     <nav>
-      <p> An aspiring Computer Scientist at Del Norte </p>
-      <class="fork" ><button class="headerbutton" onclick="window.location.href='/student/'";><a href="/student/">Home</a></button> <br \>
+<style>
+  #typewriter-container {
+    width: 100%;
+    white-space: pre-line;
+    font-family: monospace;
+    font-size: 18px;
+    animation: blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="typewriter-container"></div>
+<script>
+  const strings = [
+    "CyberPatriot Competitor",
+    "CyberAegis Lead",
+    "USACO Competitor"
+  ];
+
+  const typewriterContainer = document.getElementById('typewriter-container');
+
+  function typeNextString() {
+    
+    const randomIndex = Math.floor(Math.random() * strings.length);
+    const stringToType = strings[randomIndex];
+    
+    let charIndex = 0;
+    
+    const typingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToType.slice(0, charIndex++);
+      
+      if (charIndex > stringToType.length) {
+        clearInterval(typingInterval);
+        setTimeout(reverseTypeString, 1500, stringToType); // Delay before reverse typing
+      }
+    }, 100);
+    
+    strings.splice(randomIndex, 1); // Remove the used string
+  }
+
+  function reverseTypeString(stringToReverse) {
+    let charIndex = stringToReverse.length;
+    const reverseTypingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToReverse.slice(0, charIndex--);
+      
+      if (charIndex < 0) {
+        clearInterval(reverseTypingInterval);
+        typewriterContainer.innerHTML += '<br>'; // Add line breaks between strings
+        setTimeout(typeNextString, 1500); // Delay before typing the next string
+      }
+    }, 100);
+  }
+
+  typeNextString(); // Start the typing
+</script>
+</body>
+</html>
+
+      <button class="headerbutton" onclick="myFunction()">Dark Mode</button> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/'";><a href="/student/">Home</a></button> <br \>
       <class="fork"><button class="headerbutton"onclick="window.location.href='/student/csse'";><a href="/student/csse">CSSE</a></button> <br \>
       <class="fork"><button class="headerbutton"onclick="window.location.href='/student/csp'";><a href="/student/csp">CSP</a></button> <br \> 
       <class="fork"><button class="headerbutton"onclick="window.location.href='/student/csa'";><a href="/student/csa">CSA</a></button> <br \> 
       <class="fork"><button class="headerbutton"onclick="window.location.href='/student/blogs'";><a href="/student/blogs">Blogs</a></button> <br \>
-      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/games/'";><a href="/student/games">Games</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/games'";><a href="/student/games">Games</a></button> <br \>
       <class="title"><button class="headerbutton"onclick="window.location.href='https://github.com/Be1uga4life/student.git#readme'";><a href="https://github.com/Be1uga4life/student.git#readme">View On GitHub</a></button> <br \>
     </nav>
   </div><!-- end header -->
@@ -166,30 +257,10 @@
   <tr>
   <td> 0 </td> 
   <td>
-   <!-- make a link in the column -->
-      - <a href="/student//c1.4/2023/08/15/Tools_Sprint.html">Tools Setup</a> <br/> 
-       <!-- remove title and url -->
-    
-   <!-- make a link in the column -->
-      - <a href="/student//c1.4/2023/08/21/GitHub_Pages.html">GitHub Pages</a> <br/> 
-       <!-- remove title and url -->
-    
    <!-- make new column -->
   </td>
   <td>
        <!-- remove delimiter -->
-    
-   <!-- make a link in the column -->
-      - <a href="/student//2023/08/16/Tools_Equipment.html">VSCode, Python, Jupyter, ...</a> <br/> 
-       <!-- remove title and url -->
-    
-   <!-- make a link in the column -->
-      - <a href="/student//c4.1/2023/08/21/VSCode-GitHub_Pages_IPYNB_2_.html">Student GitHub Pages</a> <br/> 
-       <!-- remove title and url -->
-    
-   <!-- make a link in the column -->
-      - <a href="/student//c4.1/2023/08/24/Issues-with-setting-up-the-website_IPYNB_2_.html">Student GitHub Pages</a> <br/> 
-       <!-- remove title and url -->
     
    <!-- make new column -->
   </td>
