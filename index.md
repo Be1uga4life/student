@@ -53,7 +53,7 @@ title: Student Blog
   bottom: 5px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #e74c3c;
+  border-top-color: cyan;
   -webkit-animation: spin 3s linear infinite;
           animation: spin 3s linear infinite;
 }
@@ -66,7 +66,7 @@ title: Student Blog
   bottom: 15px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #f9c922;
+  border-top-color: white;
   -webkit-animation: spin 1.5s linear infinite;
           animation: spin 1.5s linear infinite;
 }
@@ -338,68 +338,3 @@ function myFunction() {
 
 <div class="g-ytsubscribe" data-channelid="UCpWLvdZNtaNOUF3wfFe1_og" data-layout="full" data-theme="dark" data-count="default"></div>
 
-<head>
-<title>Typewriter Effect</title>
-
-<style>
-  #typewriter {
-    overflow: hidden;
-    border-right: 0.15em solid black;
-    white-space: nowrap;
-    letter-spacing: 0.15em;
-    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink-caret {
-    from,
-    to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: black;
-    }
-  }
-
-</style>
-</head>
-<body>
-<div id="typewriter"></div>
-
-<script>
-  const strings = [
-    "CyberPatriot Competitor",
-    "CyberAegis Lead",
-    "USACO Competitor"
-  ];
-
-  const typewriter = document.getElementById('typewriter');
-
-  function typeNextString() {
-    const randomIndex = Math.floor(Math.random() * strings.length);
-    const stringToType = strings[randomIndex];
-
-    typewriter.innerHTML = ''; // Clear previous content
-    let charIndex = 0;
-    
-    const typingInterval = setInterval(() => {
-      typewriter.innerHTML = stringToType.slice(0, charIndex++);
-      
-      if (charIndex > stringToType.length) {
-        clearInterval(typingInterval);
-        setTimeout(typeNextString, 2500); // Delay before typing the next string
-      }
-    }, 100);
-  }
-
-  typeNextString(); // Start the typing
-</script>
-</body>
