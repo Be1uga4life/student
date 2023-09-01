@@ -13,6 +13,10 @@ app.secret_key = '8HBlop91yup&p;lu1jghahp()*;'
 def index():
     return render_template('ticketing.md')
 
+@app.route("/tickets")
+def tickets():
+    return render_template('/home/eroxyi/vscode/student/templates/tickets/')
+
 @app.route("/create_ticket", methods=['POST'])
 def create_ticket():
     subject = request.form['a']
@@ -64,7 +68,7 @@ def show_ticket():
         something.append(f)
 
     final.append(something)
-    final=print(tabulate(final, tablefmt='html'))
+    final=tabulate(final, tablefmt='html')
     return final
 
 if __name__ == '__main__':

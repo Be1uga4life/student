@@ -13,6 +13,10 @@ app.secret_key = '8HBlop91yup&p;lu1jghahp()*;'
 def index():
     return render_template('ticketing.md')
 
+@app.route("/tickets")
+def tickets():
+    return render_template('/home/eroxyi/vscode/student/templates/tickets/')
+
 @app.route("/create_ticket", methods=['POST'])
 def create_ticket():
     subject = request.form['a']
@@ -44,6 +48,28 @@ def create_ticket():
     f.write(log_message + "\n")
 
     return redirect(url_for('index'))
+
+@app.route("/delete_ticket", methods=['POST'])
+def delete_ticket():
+    dir = '/home/eroxyi/vscode/student/templates/tickets/'
+    for f in os.listdir(dir):
+        os.remove(os.path.join(dir, f))
+
+    return redirect(url_for('index'))
+    
+@app.route("/show_tickets", methods=['POST'])
+def show_ticket():
+    from tabulate import tabulate
+
+    something=[]
+    final=[]
+    dir = '/home/eroxyi/vscode/student/templates/tickets'
+    for f in os.listdir(dir):
+        something.append(f)
+
+    final.append(something)
+    final=tabulate(final, tablefmt='html')
+    return final
 
 if __name__ == '__main__':
     if Path('/var/log/ccgt.log').is_file():

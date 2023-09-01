@@ -168,6 +168,15 @@
       font-weight: 400;
       color: white;
     }
+    .delete {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background: green;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: -170px;
+    }
     button:hover {
       background: grey;
     }
@@ -189,8 +198,42 @@
       <input color='white' name='a' type="text" placeholder="subject">
       <textarea name='b' placeholder="Message..." rows="3"></textarea>
       <button type="submit" href="/">Submit</button>
-      <button id="clearTicketsBtn">Clear Tickets</button>
     </div>
   </form>
+
+  <form action="/delete_ticket" method="post" class="decor">
+    <button class="delete" href="/"> Clear Tickets </button>
+  </form>
+
+  <form action="/show_tickets" method="post" class="decor">
+    <button class="delete" href="/"> Show Tickets </button>
+    <label for="fileDropdown">Select a file:</label>
+    <select id="fileDropdown"></select>
+  </form>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    // Get a reference to the dropdown element
+    const fileDropdown = document.getElementById("fileDropdown");
+
+    // Make an AJAX request to retrieve the list of files in a directory
+    // Replace 'your_server_endpoint' with the actual endpoint that provides the list of files.
+    fetch("/tickets")
+        .then(response => response.json()) // Assuming the server returns a JSON array of file names
+        .then(data => {
+            data.forEach(filename => {
+                // Create an option element for each file and add it to the dropdown
+                const option = document.createElement("option");
+                option.value = filename;
+                option.textContent = filename;
+                fileDropdown.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching file list:", error);
+        });
+});
+</script>
+
 </body>
 
