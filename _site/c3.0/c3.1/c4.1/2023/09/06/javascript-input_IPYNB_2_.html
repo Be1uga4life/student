@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Javascript Input | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Javascript Input" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Tech Talk on user inputs using Javascript. The grade calculator takes multiple values and does a calculation on them. User input can be useful for other projects, such as being used as a query." />
+<meta property="og:description" content="A Tech Talk on user inputs using Javascript. The grade calculator takes multiple values and does a calculation on them. User input can be useful for other projects, such as being used as a query." />
+<link rel="canonical" href="http://0.0.0.0:4200/student/c3.0/c3.1/c4.1/2023/09/06/javascript-input_IPYNB_2_.html" />
+<meta property="og:url" content="http://0.0.0.0:4200/student/c3.0/c3.1/c4.1/2023/09/06/javascript-input_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-06T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Javascript Input" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-06T00:00:00-07:00","datePublished":"2023-09-06T00:00:00-07:00","description":"A Tech Talk on user inputs using Javascript. The grade calculator takes multiple values and does a calculation on them. User input can be useful for other projects, such as being used as a query.","headline":"Javascript Input","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4200/student/c3.0/c3.1/c4.1/2023/09/06/javascript-input_IPYNB_2_.html"},"url":"http://0.0.0.0:4200/student/c3.0/c3.1/c4.1/2023/09/06/javascript-input_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=52b26fab84756d7e4aa89124f22e99be705b0347">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><style>
+  .site-header {
+    font-family: monospace;
+    font-size: 15px;
+    
+    position: absolute;
+    transition: top 0.2s ease-in-out;
+    margin-top: 25px;
+    padding-top: 10px;
+    left: -80px;
+    margin-top: 275px;
+  }
+
+  .headerbutton {
+    border: 1px solid cyan;
+
+    background: rgb(0, 0, 0);
+    color:black;
+    font-weight: bold;
+    width: 270px;
+    color: #3366CC;
+
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    transition: top -0.2s ease-in-out;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .headerbutton:hover {
+    background-color: rgb(0, 255, 255);
+  }
+
+  img{
+    position:relative;
+    border: 3px solid;
+    border-color: cyan;
+  }
+
+  .pfp {
+    border-radius: 50%;
+    position:absolute;
+    left: -80px;
+  }
+
+
+</style>
+
+<img src="/student/images/pfp.png" class="pfp"> 
+<script>
+  var IsLoggedIn1 = "true";
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    var elem = document.querySelectorAll("#border");
+    elem.forEach(function(border) {
+      border.classList.toggle("border-dark");
+      });
+    var bars = document.querySelectorAll("#bar");
+    bars.forEach(function(bar) {
+      bar.classList.toggle("bar-dark");
+      });
+    var cellz = document.querySelectorAll("#cells");
+    cellz.forEach(function(cells) {
+      cells.classList.toggle("cell");
+      cells.classList.toggle("cells-dark");
+      });
+  }
+</script>
+
+
+
+<header class="site-header">
+  <div id="header">
+    <nav>
+<style>
+  #typewriter-container {
+    width: 100%;
+    white-space: pre-line;
+    font-family: monospace;
+    font-size: 18px;
+    animation: blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="typewriter-container"></div>
+<script>
+  const strings = [
+    "CyberPatriot Competitor",
+    "CyberAegis Lead",
+    "USACO Competitor"
+  ];
+
+  const typewriterContainer = document.getElementById('typewriter-container');
+
+  function typeNextString() {
+    
+    const randomIndex = Math.floor(Math.random() * strings.length);
+    const stringToType = strings[randomIndex];
+    
+    let charIndex = 0;
+    
+    const typingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToType.slice(0, charIndex++);
+      
+      if (charIndex > stringToType.length) {
+        clearInterval(typingInterval);
+        setTimeout(reverseTypeString, 1500, stringToType); // Delay before reverse typing
+      }
+    }, 100);
+    
+    strings.splice(randomIndex, 1); // Remove the used string
+  }
+
+  function reverseTypeString(stringToReverse) {
+    let charIndex = stringToReverse.length;
+    const reverseTypingInterval = setInterval(() => {
+      typewriterContainer.textContent = stringToReverse.slice(0, charIndex--);
+      
+      if (charIndex < 0) {
+        clearInterval(reverseTypingInterval);
+        typewriterContainer.innerHTML += '<br>'; // Add line breaks between strings
+        setTimeout(typeNextString, 1500); // Delay before typing the next string
+      }
+    }, 100);
+  }
+
+  typeNextString(); // Start the typing
+</script>
+</body>
+</html>
+
+      <button class="headerbutton" onclick="myFunction()">Dark Mode</button> 
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/'";><a href="/student/">Home</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/weeklylog'";><a href="/student/weeklylog">Weekly Log</a></button> <br \>
+      <class="fork"><button class="headerbutton"onclick="window.location.href='/student/games'";><a href="/student/games">Games</a></button> <br \>
+      <class="title"><button class="headerbutton"onclick="window.location.href='https://github.com/Be1uga4life/student.git#readme'";><a href="https://github.com/Be1uga4life/student.git#readme">View On GitHub</a></button> <br \>
+    </nav>
+  </div><!-- end header -->
+</header></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header"> -->
+    <h1 
+      class="post-title p-name" itemprop="name headline">Javascript Input
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-09-06T00:00:00-07:00" itemprop="datePublished">
+        Sep 6, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">A Tech Talk on user inputs using Javascript. The grade calculator takes multiple values and does a calculation on them. User input can be useful for other projects, such as being used as a query.</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="html">HTML</h2>
+<blockquote>
+  <p>Identify the HTML for a grade calculator;  it enables input and totals.</p>
+</blockquote>
+
+<ul>
+  <li><a href="https://www.w3schools.com/tags/tag_div.asp">DIV element</a> defines a division or a section in an HTML document. Used to divide headings, totals, and input in this example.</li>
+  <li><a href="https://www.w3schools.com/tags/tag_span.asp">SPAN element</a> defines a inline container within text. Used to capture different totals in this example.</li>
+  <li><a href="https://www.w3schools.com/tags/tag_input.asp">INPUT tag</a> specifies an input field where the user can enter data. Used to capture series of numbers in this example.</li>
+  <li><a href="https://www.w3schools.com/html/html_id.asp">ID attributes</a> are used by CSS for style and JavaScript for reference.  Used to update totals in this example.</li>
+</ul>
+
+<h3 id="resources-html">Resources HTML</h3>
+<ul>
+  <li><a href="https://www.w3schools.com/html/">HTML Tutorial</a></li>
+  <li><a href="https://www.washington.edu/accesscomputing/webd2/student/unit3/module5/lesson1.html">learn about id</a></li>
+</ul>
+
+<h2 id="javascript-newinputline">JavaScript newInputLine</h2>
+<blockquote>
+  <p>Identify the function that generates a new input line after each score is entered.</p>
+</blockquote>
+
+<h3 id="resources-createelement">Resources createElement</h3>
+<ul>
+  <li><a href="https://www.w3schools.com/jsref/met_document_createelement.asp">Create Element</a></li>
+  <li><a href="https://www.w3schools.com/jsref/met_element_setattribute.asp">Set Attribute</a></li>
+</ul>
+
+<h2 id="javascript-calculator">JavaScript calculator</h2>
+<blockquote>
+  <p>Indentify the code below calculates the the total, count, and average of the user inputs.</p>
+</blockquote>
+
+<h3 id="resources-getelements">Resources getElements</h3>
+<ul>
+  <li><a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp">Get Elements by ID</a></li>
+  <li><a href="https://www.w3schools.com/jsref/met_doc_getelementsbyname.asp">Get Elements by Name</a></li>
+</ul>
+
+<h2 id="html-magic-runs-calculator">HTML Magic runs Calculator</h2>
+<blockquote>
+  <p>The code below runs in VSCode and on Jupyter Notebook.</p>
+  <ul>
+    <li><a href="https://www.w3schools.com/tags/tag_script.asp">SCRIPT tag</a> is used to embed JavaScript inside of HTML</li>
+  </ul>
+</blockquote>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<!-- Heading -->
+<h1>Grade Calculator</h1>
+<h2>Input scores, press tab to add each new number.</h2>
+<!-- Totals -->
+<h3>
+    Total : <span id="total">0.0</span>
+    Count : <span id="count">0.0</span>
+    Average : <span id="average">0.0</span>
+</h3>
+<!-- Rows -->
+<div id="scores">
+    <!-- javascript generated inputs -->
+</div>
+
+<script>
+// Creates a new input box
+function newInputLine(index) {
+
+    // Add a label for each score element
+    var title = document.createElement('label');
+    title.setAttribute('for', index);
+    title.innerHTML = index + ". ";    
+    document.getElementById("scores").appendChild(title); // add to HTML
+
+    // Setup score element and attributes
+    var score = document.createElement("input"); // input element
+    score.setAttribute('id', index);  // id of input element
+    score.setAttribute('onkeydown', "calculator(event)"); // Each key triggers event
+    score.setAttribute('type', "number"); // Use text type to allow typing multiple characters
+    score.setAttribute('name', "score");  // name is used to group "score" elements
+    score.setAttribute('style', "text-align: right; width: 5em");
+    document.getElementById("scores").appendChild(score);  // add to HTML
+
+    // Create and add blank line after input box
+    var br = document.createElement("br");  // line break element
+    document.getElementById("scores").appendChild(br); // add to HTML
+
+    // Set focus on the new input line
+    document.getElementById(index).focus();
+}
+
+// Handles event and calculates totals
+function calculator(event) {
+    var key = event.key;
+    // Check if the pressed key is the "Tab" key (key code 9) or "Enter" key (key code 13)
+    if (key === "Tab" || key === "Enter") { 
+        event.preventDefault(); // Prevent default behavior (tabbing to the next element)
+
+        var array = document.getElementsByName('score'); // setup array of scores
+        var total = 0;  // running total
+        var count = 0;  // count of input elements with valid values
+
+        for (var i = 0; i < array.length; i++) {  // iterate through array
+            var value = array[i].value;
+            if (parseFloat(value)) {
+                var parsedValue = parseFloat(value);
+                total += parsedValue;  // add to running total
+                count++;
+            }
+        }
+
+        // update totals
+        document.getElementById('total').innerHTML = total.toFixed(2); // show two decimals
+        document.getElementById('count').innerHTML = count;
+
+        if (count > 0) {
+            document.getElementById('average').innerHTML = (total / count).toFixed(2);
+        } else {
+            document.getElementById('average').innerHTML = "0.0";
+        }
+
+        // adds newInputLine, only if all array values satisfy parseFloat 
+        if (count === document.getElementsByName('score').length) {
+            newInputLine(count); // make a new input line
+        }
+    }
+}
+
+// Creates 1st input box on Window load
+newInputLine(0);
+
+</script>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">html</span>
+<span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Hello</span> <span class="n">World</span><span class="err">!</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span> <span class="n">defer</span> <span class="n">src</span><span class="o">=</span><span class="s">"https://pyscript.net/releases/2022.12.1/pyscript.js"</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+    <span class="n">At</span> <span class="n">my</span> <span class="n">study</span> <span class="n">we</span> <span class="n">learn</span> <span class="n">Python</span><span class="p">.</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+    <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">sall</span> <span class="n">example</span><span class="p">:</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">"/hello"</span> <span class="n">method</span><span class="o">=</span><span class="s">"post"</span><span class="o">&gt;</span>
+        <span class="n">First</span> <span class="n">Name</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s">"text"</span> <span class="n">name</span><span class="o">=</span><span class="s">"first_name"</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+        <span class="n">Last</span> <span class="n">Name</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s">"text"</span> <span class="n">name</span><span class="o">=</span><span class="s">"last_name"</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="n">name</span><span class="o">=</span> <span class="s">"form"</span> <span class="n">value</span><span class="o">=</span><span class="s">"Submit"</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Random</span> <span class="n">number</span> <span class="n">generated</span> <span class="n">by</span> <span class="n">python</span> <span class="n">code</span> <span class="ow">is</span><span class="p">...</span> 
+      <span class="o">&lt;</span><span class="n">span</span> <span class="nb">id</span><span class="o">=</span><span class="s">'labelTag'</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> 
+<span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+
+
+<span class="o">&lt;</span><span class="n">py</span><span class="o">-</span><span class="n">script</span><span class="o">&gt;</span>
+    <span class="n">pyscript</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">'labelTag'</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">py</span><span class="o">-</span><span class="n">script</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<title>Hello World!</title>
+<script defer="" src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+
+<p>
+    At my study we learn Python.<br />
+    This is a sall example:<br />
+    <form action="/hello" method="post">
+        First Name: <input type="text" name="first_name" />  <br />
+        Last Name: <input type="text" name="last_name" />
+        <input type="submit" name="form" value="Submit" />
+    </form>
+</p>
+
+<p>Random number generated by python code is... 
+      <span id="labelTag"> </span> 
+</p>
+
+<py-script>
+
+    pyscript.write('labelTag', 3)
+
+</py-script>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">html</span>
+        <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span>
+            <span class="n">CV</span> <span class="o">-</span> <span class="n">Rogier</span>
+        <span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span>
+            <span class="n">Study</span>
+        <span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+            <span class="n">At</span> <span class="n">my</span> <span class="n">study</span> <span class="n">we</span> <span class="n">learn</span> <span class="n">Python</span><span class="p">.</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+            <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">sall</span> <span class="n">example</span><span class="p">:</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">"/hello"</span> <span class="n">method</span><span class="o">=</span><span class="s">"post"</span><span class="o">&gt;</span>
+                <span class="n">First</span> <span class="n">Name</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s">"text"</span> <span class="n">name</span><span class="o">=</span><span class="s">"first_name"</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+                <span class="n">Last</span> <span class="n">Name</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s">"text"</span> <span class="n">name</span><span class="o">=</span><span class="s">"last_name"</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="n">name</span><span class="o">=</span> <span class="s">"form"</span> <span class="n">value</span><span class="o">=</span><span class="s">"Submit"</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;title&gt;
+    CV - Rogier
+&lt;/title&gt;
+</code></pre></div></div>
+<p>&lt;/head&gt;</p>
+<body>
+    <h3>
+        Study
+    </h3>
+    <p>
+        At my study we learn Python.<br />
+        This is a sall example:<br />
+        <form action="/hello" method="post">
+            First Name: <input type="text" name="first_name" />  <br />
+            Last Name: <input type="text" name="last_name" />
+            <input type="submit" name="form" value="Submit" />
+        </form>
+    </p>
+</body>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>234
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/student/c3.0/c3.1/c4.1/2023/09/06/javascript-input_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

@@ -1,5 +1,7 @@
 ---
-
+layout: default
+title: Week 0 Plan
+permalink: /Blogs/Week0
 ---
 
 ## Week 0 Documentation
