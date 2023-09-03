@@ -10,14 +10,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="August 2023 to June 2024" />
 <meta property="og:description" content="August 2023 to June 2024" />
-<link rel="canonical" href="http://0.0.0.0:4200/student/test.html" />
-<meta property="og:url" content="http://0.0.0.0:4200/student/test.html" />
+<link rel="canonical" href="http://0.0.0.0:4200/student/login.html" />
+<meta property="og:url" content="http://0.0.0.0:4200/student/login.html" />
 <meta property="og:site_name" content="CompSci Blogs" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="CompSci Blogs" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"August 2023 to June 2024","headline":"CompSci Blogs","url":"http://0.0.0.0:4200/student/test.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"August 2023 to June 2024","headline":"CompSci Blogs","url":"http://0.0.0.0:4200/student/login.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/student/assets/css/style.css?v=acbb91a2d0b8c8af8c1ffdbf4484376cfd3307bc">
@@ -197,127 +197,36 @@
 
 
     <section>
-      <style> 
-  hr{background-color: #7289da;}
-  body {
-    padding: 25px;
-    background-color: #121212;
-    color: white;
-    transition-duration: 0.2s;
-    font-family: Monospace;
-  }
-  hr{background-color: #7289da;}
-  .dark-mode {
-    background-color: white;
-    color: black;
-    transition-duration: 0.2s;
-  }
-  .bar-dark{background-color: black}
-  
-  .border-dark {
-    border: 2px solid black;
-  }
-  .cells-dark {
-    width: 100px;
-      height: 100px;
-      border: 1px solid black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      cursor: pointer;
-  }
-  .board {
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      grid-gap: 2px;
-    }
-    .cell {
-      width: 100px;
-      height: 100px;
-      border: 1px solid #7289da;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-
-    h1 {
-        color: cyan;
-    }
-
-    button {
-        background: royalblue;
-        color: white;
-    }
-
-</style>
-
-<h1> Weather Report </h1>
+      
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <style>
-        table, th, td { border: 1px solid cyan; border-collapse: collapse; }
-        td, th {padding: 10px;}
-    </style>
+    <title>Login</title>
 </head>
 <body>
-    <button id="getDataButton">Get Data from API</button>
-    <div id="jsonData"></div>
-    <table border="1">
-        <tbody id="table-body"></tbody>
-    </table>
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required="" /><br /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required="" /><br /><br />
+        <button type="button" onclick="authenticate()">Login</button>
+    </form>
+    <p id="result"></p>
+
     <script>
-        // Define the API endpoint URL
-        const apiUrl = 'http://api.weatherapi.com/v1/current.json?key=935574b3cab243fc9d950024230209&q=San Diego&aqi=yes';
-        // Function to make the API call when the button is clicked
-        document.getElementById('getDataButton').addEventListener('click', fetchData);
-        function fetchData() {
-            fetch(apiUrl)
-                .then(response => {
-                    // Check if the response status is OK (200)
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json(); // Parse the JSON response
-                })
-                .then(data => {
-                    // Handle the data from the API
-                    // document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
-                    convertToVerticalTable(data); // Call the function to populate the table
-                })
-                .catch(error => {
-                    // Handle errors
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-        function convertToVerticalTable(jsonData) {
-            const tableBody = document.getElementById("table-body");
-            for (const key in jsonData.location) {
-                const row = document.createElement("tr");
-                const cellKey = document.createElement("td");
-                const cellValue = document.createElement("td");
-                cellKey.textContent = key;
-                cellValue.textContent = jsonData.location[key];
-                row.appendChild(cellKey);
-                row.appendChild(cellValue);
-                tableBody.appendChild(row);
-            }
-            for (const key in jsonData.current) {
-                const row = document.createElement("tr");
-                const cellKey = document.createElement("td");
-                const cellValue = document.createElement("td");
-                cellKey.textContent = key;
-                cellValue.textContent = jsonData.current[key];
-                row.appendChild(cellKey);
-                row.appendChild(cellValue);
-                tableBody.appendChild(row);
+        function authenticate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check if the credentials are correct (for demonstration purposes only)
+            if (username === "EroxYII" && password === "Hyp3rionIsTheG0atButPr1las3yIsnT") {
+                document.getElementById("result").textContent = "Login successful! The flag is: flag{dont_go_into_will's_basement}";
+            } else {
+                document.getElementById("result").textContent = "Invalid credentials. Please try again.";
             }
         }
     </script>
 </body>
+
 
     </section>
 
