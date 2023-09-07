@@ -57,6 +57,7 @@
 </style>
 
 
+
 <h1> Weather Report </h1>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -67,56 +68,103 @@
 </head>
 <body>
     <button id="getDataButton">Get Data from API</button>
+    <input type="text" id="searchInput" placeholder="Enter a key to search">
+    <button id="searchButton">Search</button>
     <div id="jsonData"></div>
     <table border="1">
         <tbody id="table-body"></tbody>
     </table>
     <script>
-        // Define the API endpoint URL
-        const apiUrl = 'http://api.weatherapi.com/v1/current.json?key=935574b3cab243fc9d950024230209&q=San Diego&aqi=yes';
-        // Function to make the API call when the button is clicked
-        document.getElementById('getDataButton').addEventListener('click', fetchData);
-        function fetchData() {
-            fetch(apiUrl)
-                .then(response => {
-                    // Check if the response status is OK (200)
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json(); // Parse the JSON response
-                })
-                .then(data => {
-                    // Handle the data from the API
-                    // document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
-                    convertToVerticalTable(data); // Call the function to populate the table
-                })
-                .catch(error => {
-                    // Handle errors
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-        function convertToVerticalTable(jsonData) {
-            const tableBody = document.getElementById("table-body");
-            for (const key in jsonData.location) {
-                const row = document.createElement("tr");
-                const cellKey = document.createElement("td");
-                const cellValue = document.createElement("td");
-                cellKey.textContent = key;
-                cellValue.textContent = jsonData.location[key];
-                row.appendChild(cellKey);
-                row.appendChild(cellValue);
-                tableBody.appendChild(row);
-            }
-            for (const key in jsonData.current) {
-                const row = document.createElement("tr");
-                const cellKey = document.createElement("td");
-                const cellValue = document.createElement("td");
-                cellKey.textContent = key;
-                cellValue.textContent = jsonData.current[key];
-                row.appendChild(cellKey);
-                row.appendChild(cellValue);
-                tableBody.appendChild(row);
-            }
-        }
-    </script>
+  <h1>Weather Report</h1>
+  <button id="getDataButton">Get Data from API</button>
+  <input type="text" id="searchInput" placeholder="Enter a key to search">
+  <button id="searchButton">Search</button>
+  <div id="jsonData"></div>
+  <table border="1">
+    <tbody id="table-body"></tbody>
+  </table>
+  <div id="searchResult"></div> <!-- Add a div to display search results -->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <style>
+    /* Additional styles here if needed */
+  </style>
+
+  <script>
+    // Define the API endpoint URL
+    const apiUrl = 'https://api.weatherapi.com/v1/current.json?key=935574b3cab243fc9d950024230209&q=San Diego&aqi=yes';
+    
+    // Function to make the API call when the button is clicked
+    document.getElementById('getDataButton').addEventListener('click', fetchData);
+
+    function fetchData() {
+      fetch(apiUrl)
+        .then(response => {
+          // Check if the response status is OK (200)
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+          // Handle the data from the API
+          convertToVerticalTable(data); // Call the function to populate the table
+        })
+        .catch(error => {
+          // Handle errors
+          console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+
+    function convertToVerticalTable(jsonData) {
+      const tableBody = document.getElementById("table-body");
+      for (const key in jsonData.location) {
+        const row = document.createElement("tr");
+        const cellKey = document.createElement("td");
+        const cellValue = document.createElement("td");
+        cellKey.textContent = key;
+        cellValue.textContent = jsonData.location[key];
+        row.appendChild(cellKey);
+        row.appendChild(cellValue);
+        tableBody.appendChild(row);
+      }
+      for (const key in jsonData.current) {
+        const row = document.createElement("tr");
+        const cellKey = document.createElement("td");
+        const cellValue = document.createElement("td");
+        cellKey.textContent = key;
+        cellValue.textContent = jsonData.current[key];
+        row.appendChild(cellKey);
+        row.appendChild(cellValue);
+        tableBody.appendChild(row);
+      }
+    }
+  </script>
+
+  <script>
+    // Add an event listener for the search button
+    document.getElementById('searchButton').addEventListener('click', searchTable);
+
+    function searchTable() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const tableRows = document.querySelectorAll('#table-body tr');
+      // Loop through each table row and check if it contains the search input
+      let found = false;
+      tableRows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        cells.forEach(cell => {
+          const cellText = cell.textContent.toLowerCase();
+          if (cellText.includes(searchInput)) {
+            // Display the matching row in the searchResult div
+            document.getElementById('searchResult').textContent = 'Found: ' + row.textContent;
+            found = true;
+          }
+        });
+      });
+      // If no match is found, display a message
+      if (!found) {
+        document.getElementById('searchResult').textContent = 'No matching row found.';
+      }
+    }
+  </script>
 </body>
