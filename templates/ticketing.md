@@ -168,6 +168,15 @@
       font-weight: 400;
       color: white;
     }
+    .delete {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background: green;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: -170px;
+    }
     button:hover {
       background: grey;
     }
@@ -189,8 +198,16 @@
       <input color='white' name='a' type="text" placeholder="subject">
       <textarea name='b' placeholder="Message..." rows="3"></textarea>
       <button type="submit" href="/">Submit</button>
-      <button id="clearTicketsBtn">Clear Tickets</button>
     </div>
   </form>
+
+  <form action="/delete_ticket" method="post" class="decor">
+    <button class="delete" href="/"> Clear Tickets </button>
+  </form>
+
+  <form action="/show_tickets" method="post" class="decor">
+    <button class="delete" href="/"> Show Tickets </button>
+  </form>
+
 </body>
 

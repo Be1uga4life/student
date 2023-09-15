@@ -45,6 +45,28 @@ def create_ticket():
 
     return redirect(url_for('index'))
 
+@app.route("/delete_ticket", methods=['POST'])
+def delete_ticket():
+    dir = '/home/eroxyi/vscode/student/templates/tickets/'
+    for f in os.listdir(dir):
+        os.remove(os.path.join(dir, f))
+
+    return redirect(url_for('index'))
+    
+@app.route("/show_tickets", methods=['POST'])
+def show_ticket():
+    from tabulate import tabulate
+
+    something=[]
+    final=[]
+    dir = '/home/eroxyi/vscode/student/templates/tickets'
+    for f in os.listdir(dir):
+        something.append(f)
+
+    final.append(something)
+    final=print(tabulate(final, tablefmt='html'))
+    return final
+
 if __name__ == '__main__':
     if Path('/var/log/ccgt.log').is_file():
         app.run(host = '0.0.0.0', port = 4201)
