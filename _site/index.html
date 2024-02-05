@@ -1,10 +1,20 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
   <style>
+    body {
+      background-color: #121212;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
     form {
-      background-color: #ffffff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #333;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
       padding: 20px;
       border-radius: 8px;
       max-width: 400px;
@@ -17,7 +27,7 @@
       display: block;
       margin-bottom: 8px;
       font-weight: bold;
-      color: #333;
+      color: #fff;
     }
 
     input {
@@ -28,6 +38,8 @@
       border: 1px solid #ddd;
       border-radius: 4px;
       font-size: 16px;
+      background-color: #eee;
+      color: #333;
     }
 
     input[type="submit"] {
@@ -44,6 +56,20 @@
       color: #ff0000;
       margin-top: 10px;
     }
+
+    .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    }
+
+    .signup-link a {
+    color: #4caf50;
+    text-decoration: none;
+    }
+
+    .signup-link a:hover {
+    text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -58,6 +84,9 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password"><br><br>
         <input type="submit" value="Submit">
+        <div class="signup-link">
+            <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
+        </div>
       </form>
       <script>
         const apiUrl = "http://127.0.0.1:8086/api/users/authenticate";
@@ -103,6 +132,8 @@
             console.error('Error:', error);
           }
         }
+
+        
       </script>
     </div>
   </main>
