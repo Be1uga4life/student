@@ -58,17 +58,17 @@
     }
 
     .signup-link {
-    text-align: center;
-    margin-top: 20px;
+      text-align: center;
+      margin-top: 20px;
     }
 
     .signup-link a {
-    color: #4caf50;
-    text-decoration: none;
+      color: #4caf50;
+      text-decoration: none;
     }
 
     .signup-link a:hover {
-    text-decoration: underline;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -84,8 +84,9 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password"><br><br>
         <input type="submit" value="Submit">
+        <div class="error-message" id="error-message"></div> <!-- New error message element -->
         <div class="signup-link">
-            <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
+          <p>Don't have an account? <a href="./signup.html">Sign Up</a></p>
         </div>
       </form>
       <script>
@@ -95,6 +96,7 @@
           e.preventDefault();
           const uid = document.getElementById("uid").value;
           const password = document.getElementById("password").value;
+          const errorMessageElement = document.getElementById("error-message");
 
           const obj = { uid: uid, password: password };
 
@@ -125,15 +127,15 @@
               window.location.replace("./blog");
 
             } else {
-              // Authentication failed, show an error message or take appropriate action
+              // Authentication failed, show an error message
               console.error('Authentication failed');
+              errorMessageElement.textContent = 'Authentication failed. Please check your credentials.';
             }
           } catch (error) {
             console.error('Error:', error);
+            errorMessageElement.textContent = 'Error during authentication. Please try again later.';
           }
         }
-
-        
       </script>
     </div>
   </main>
